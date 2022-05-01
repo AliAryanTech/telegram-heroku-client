@@ -1,0 +1,30 @@
+{
+  "name": "telegram-heroku-client",
+  "version": "1.0.0",
+  "description": "Unofficial Heroku Client for Telegram",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.js",
+    "start:dev": "rollup --config rollup.config.ts --configPlugin typescript",
+    "start:dev:watch": "rollup --config rollup.config.ts --configPlugin typescript --watch"
+  },
+  "keywords": [
+    "heroku",
+    "telegram",
+    "client"
+  ],
+  "author": "Irlan Arvila",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.2",
+    "@types/node": "^17.0.30",
+    "rollup": "^2.71.1",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "heroku-client": "^3.1.0",
+    "telegram": "^2.7.12"
+  }
+}
