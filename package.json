@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node dist/index.js",
-    "start:dev": "rollup --config rollup.config.ts --configPlugin typescript",
-    "start:dev:watch": "rollup --config rollup.config.ts --configPlugin typescript --watch"
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "dev": "nodemon -ext ts -x \"node dist/index.js\""
   },
   "keywords": [
     "heroku",
