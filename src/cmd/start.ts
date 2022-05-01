@@ -1,5 +1,8 @@
+import { NewMessage } from "telegram/events/index.js";
+import store from "../store";
 import { Button } from "telegram/tl/custom/button.js";
 import client, { CHANNEL_LINK } from "..";
+import herokuAuthentication from "../lib/herokuAuthentication";
 
 async function start(event) {
   const that = event.message;
@@ -8,13 +11,20 @@ async function start(event) {
   );
 
   if (that.message === "/start") {
-    await client.sendMessage(that.peerId.userId.value, {
-      message: `I can help you create and manage Heroku apps 
-        
-Please send me your <strong><a href="https://dashboard.heroku.com/account/applications/authorizations/new">API KEY</a></strong>`,
-      buttons: buttonSubscribeChannel,
-      parseMode: "html",
-    });
+    if (store.isLogin[that.peerId.userId.value]) {
+      await client.sendMessage(that.peerId.userId.value, {
+        message: `Hi ${store.currentUser[that.peerId.userId.value].email}!`,
+      });
+    } else {
+      await client.sendMessage(that.peerId.userId.value, {
+        message: `I can help you create and manage Heroku apps 
+          
+Please send me your <a href="https://dashboard.heroku.com/account/applications/authorizations/new">API Key</a>`,
+        buttons: buttonSubscribeChannel,
+        parseMode: "html",
+      });
+      client.addEventHandler(herokuAuthentication, new NewMessage({}));
+    }
   }
 }
 
