@@ -9,6 +9,11 @@
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "dev": "nodemon -ext ts -x \"node dist/index.js\""
   },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x",
+    "yarn": "1.x"
+  },
   "keywords": [
     "heroku",
     "telegram",

@@ -1,0 +1,28 @@
+{
+  "name": "telegram-heroku-client",
+  "description": "Unofficial Heroku Client for Telegram",
+  "env": {
+    "API_ID": {
+      "description": "Get this from https://my.telegram.org/apps",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Get this from https://my.telegram.org/apps",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Get this from https://t.me/BotFather",
+      "required": true
+    },
+    "CHANNEL_LINK": {
+      "description": "Link your telegram channel",
+      "required": false,
+      "value": "https://t.me/playlistrmy"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
+}
